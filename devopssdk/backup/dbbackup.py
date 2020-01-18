@@ -18,7 +18,7 @@ import sys
 import os
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE)
-from ..Public.UseShel import exec_shell
+from ..pubilc.useshell import exec_shell
 
 
 class DbBackup(object):
