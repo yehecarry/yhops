@@ -13,7 +13,7 @@ __version__ = '0.0.1'
 setup(
     name='yhops',
     version=__version__,
-    packages=['DevOpsSdk', 'DevOpsSdk.Backup', 'DevOpsSdk.Pubilc','DevOpsSdk.CloudSdk'],
+    packages=['DevOpsSdk', 'DevOpsSdk.Backup', 'DevOpsSdk.Public', 'DevOpsSdk.CloudSdk'],
     url='https://github.com/yehecarry/yhops.git',
     license='',
     install_requires=['pymysql==0.9.3', 'sqlalchemy==1.3.0', 'boto3'],
