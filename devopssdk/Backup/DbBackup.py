@@ -21,11 +21,6 @@ sys.path.append(BASE)
 from ..Public.UseShel import exec_shell
 
 
-
-
-
-
-
 class DbBackup(object):
     """
     备份脚本
