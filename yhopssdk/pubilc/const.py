@@ -45,9 +45,12 @@ class ErrorCode(IntEnum):
 
 
 class _const(object):
+    """
+    定义一个字典的方法
+    """
     def __setattr__(self, name, value):
-        if name in self.__dict__:
-            raise ConstError("Can't rebind const (%s)" % name)
+        # if name in self.__dict__:
+        #     raise ConstError("Can't rebind const (%s)" % name)
         if not name.isupper():
             raise ConstError("Const must be upper.")
         self.__dict__[name] = value
