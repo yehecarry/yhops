@@ -172,6 +172,8 @@ class DbBackup(object):
             if not self.mongodb_user:
                 exec_shell("mongodump -h {cluster_ip}  -o {local_path}".format(cluster_ip=cluster_ip,
                                                                                local_path=local_backup_path))
+                print("mongodump -h {cluster_ip}  -o {local_path}".format(cluster_ip=cluster_ip,
+                                                                               local_path=local_backup_path))
                 exec_shell("tar zcvf {local_ok_path} {local_path}"
                            .format(local_ok_path=local_backup_file_path, local_path=local_backup_path))
                 backup_path = local_backup_file_path[1:]
