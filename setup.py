@@ -16,7 +16,7 @@ setup(
     packages=['yhopssdk', 'yhopssdk.backup', 'yhopssdk.cloudsdk', 'yhopssdk.pubilc'],
     url='https://github.com/yehecarry/yhops.git',
     license='',
-    install_requires=['pymysql==0.9.3', 'sqlalchemy==1.3.0', 'boto3', 'redis=3.3.11'],
+    install_requires=['pymysql==0.9.3', 'sqlalchemy==1.3.0', 'boto3', 'redis==3.3.11'],
     author='Yehe',
     author_email='420636911@qq.com',
     description='yeops is operation  script'
