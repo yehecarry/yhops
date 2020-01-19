@@ -207,6 +207,8 @@ class DbBackup(object):
                                                                   redis_rdb_backup=local_backup_file_path))
         exec_shell("tar zcvf {redis_rdb_backup_tar} {redis_rdb_backup}"
                    .format(redis_rdb_backup_tar=local_backup_file_path_tar, redis_rdb_backup=local_backup_file_path))
+        print("tar zcvf {redis_rdb_backup_tar} {redis_rdb_backup}"
+                   .format(redis_rdb_backup_tar=local_backup_file_path_tar, redis_rdb_backup=local_backup_file_path))
         backup_path = local_backup_file_path_tar[1:]
         return local_backup_file_path_tar, backup_path
 
