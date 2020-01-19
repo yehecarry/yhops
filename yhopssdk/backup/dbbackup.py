@@ -69,6 +69,10 @@ class DbBackup(object):
         local_backup_file_path = self.local_path + "/AllDatabase.sql.gz"
         if not os.path.exists(self.local_path):
             exec_shell("mkdir -p {path}".format(path=self.local_path))
+        print("mysqldump -u {user} -p{password} -P {port} -h {ip} --all-databases --skip-lock-table"
+                   "|gzip > {local_path}".format(user=self.mysql_user, password=self.mysql_pass, ip=self.mysql_ip,
+                                                 port=self.mysql_port, database=self.mysql_database,
+                                                 local_path=local_backup_file_path))
         exec_shell("mysqldump -u {user} -p{password} -P {port} -h {ip} --all-databases --skip-lock-table"
                    "|gzip > {local_path}".format(user=self.mysql_user, password=self.mysql_pass, ip=self.mysql_ip,
                                                  port=self.mysql_port, database=self.mysql_database,
