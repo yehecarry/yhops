@@ -3,7 +3,7 @@
 """
 Author : Yehe
 date   : 2020/1/19 11:58
-role   : 常量管理
+role   : 常量管理与字典管理
 """
 
 from enum import IntEnum as Enum
@@ -65,4 +65,20 @@ const.REGION_NAME = "REGION_NAME"
 const.BUCKET_NAME = "BUCKET_NAME"
 const.LOCAL_PATH = "LOCAL_PATH"
 const.BACKUP_PATH = "BACKUP_PATH"
+
+# MYSQL 连接配置
+const.MYSQL_USER = "MYSQL_USER"
+const.MYSQL_PASS = "MYSQL_PASS"
+const.MYSQL_IP = "MYSQL_IP"
+const.MYSQL_PORT = "MYSQL_PORT"
+const.MYSQL_DATABASE = "MYSQL_DATABASE"
+
+# Mondogb 连接配置
+const.MONGODB_USER = "MONGODB_USER"
+const.MONGODB_PASS = "MONGODB_PASS"
+const.MONGODB_IP = "MONGODB_IP"
+const.MONGODB_PORT = "MONGODB_PORT"
+const.MONGODB_DATABASE = "MONGODB_DATABASE"
+const.MONGODB_REPLSET = "MONGODB_REPLSET"
+
 
