@@ -34,7 +34,7 @@ $ pip3 -V
 ```
 ##### SDK 安装
 ```bash
-$ pip3 install -U git+git+https://github.com/yehecarry/yhops.git
+$ pip3 install  -U git+https://github.com/yehecarry/yhops.git
 ```
 
 ## 结构
