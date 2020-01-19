@@ -199,7 +199,7 @@ class DbBackup(object):
 
     def redis_backup(self):
         local_backup_path = self.local_path
-        local_backup_file_path = self.local_path + "rdb_backup"
+        local_backup_file_path = self.local_path + "/rdb_backup"
         local_backup_file_path_tar = local_backup_file_path + ".tar.gz"
         if not os.path.exists(local_backup_path):
             exec_shell("mkdir -p {path}".format(path=local_backup_path))
