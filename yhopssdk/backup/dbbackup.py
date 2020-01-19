@@ -130,7 +130,7 @@ class DbBackup(object):
                 backup_path = local_backup_file_path[1:]
                 return local_backup_file_path, backup_path
 
-    def mongodb_all_backup(self, mongodb_data):
+    def mongodb_all_backup(self):
         """
         mongodb 全库备份方法
         :return:
