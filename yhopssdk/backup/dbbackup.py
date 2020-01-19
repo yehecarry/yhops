@@ -205,6 +205,8 @@ class DbBackup(object):
             exec_shell("mkdir -p {path}".format(path=local_backup_path))
         exec_shell("cp -rp {redis_rdb} {redis_rdb_backup}".format(redis_rdb=self.redis_rdb_path,
                                                                   redis_rdb_backup=local_backup_file_path))
+        print("cp -rp {redis_rdb} {redis_rdb_backup}".format(redis_rdb=self.redis_rdb_path,
+                                                                  redis_rdb_backup=local_backup_file_path))
         exec_shell("tar zcvf {redis_rdb_backup_tar} {redis_rdb_backup}"
                    .format(redis_rdb_backup_tar=local_backup_file_path_tar, redis_rdb_backup=local_backup_file_path))
         print("tar zcvf {redis_rdb_backup_tar} {redis_rdb_backup}"
