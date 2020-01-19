@@ -11,6 +11,7 @@ import os
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE)
 from yhopssdk.pubilc.operate import exec_shell
+from yhopssdk.db.redis_conn import RedisConn
 
 
 class DbBackup(object):
@@ -39,6 +40,8 @@ class DbBackup(object):
         self.mongodb_port = data.MONGODB_PORT
         self.mongodb_database = data.MONGODB_DATABASE
         self.mongodb_replset = data.MONGODB_REPLSET
+        # 定义redis
+        self.redis_rdb_path = data.REDIS_RDB_PATH
 
     def mysql_backup(self):
         """
@@ -195,10 +198,17 @@ class DbBackup(object):
                 return local_backup_file_path, backup_path
 
     def redis_backup(self):
-        print("redisrest")
-
-    def redis_all_backup(self):
-        print("redisrest")
+        local_backup_path = self.local_path
+        local_backup_file_path = self.local_path + "rdb_backup"
+        local_backup_file_path_tar = local_backup_file_path + ".tar.gz"
+        if not os.path.exists(local_backup_path):
+            exec_shell("mkdir -p {path}".format(path=local_backup_path))
+        exec_shell("cp -rp {redis_rdb} {redis_rdb_backup}".format(redis_rdb=self.redis_rdb_path,
+                                                                  redis_rdb_backup=local_backup_file_path))
+        exec_shell("tar zcvf {redis_rdb_backup_tar} {redis_rdb_backup}"
+                   .format(redis_rdb_backup_tar=local_backup_file_path_tar, redis_rdb_backup=local_backup_file_path))
+        backup_path = local_backup_file_path_tar[1:]
+        return local_backup_file_path_tar, backup_path
 
 
 if __name__ == '__main__':
