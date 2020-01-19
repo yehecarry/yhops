@@ -48,13 +48,6 @@ class RedisConn(object):
         return ret
 
 
-
-
-        # slave_ip = self.get_slave_ip()
-        # for
-        # print(slave_ip)
-
-
 if __name__ == '__main__':
     const.REDIS_IP = ["192.168.1.84", "192.168.1.84", "192.168.1.84"]
     const.REDIS_PORT = ["26379", "26380", "26381"]
