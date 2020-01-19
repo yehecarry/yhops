@@ -52,14 +52,15 @@ class DbBackup(object):
         local_backup_file_path = self.local_path + "/" + self.mysql_database + ".gz"
         if not os.path.exists(self.local_path):
             exec_shell("mkdir -p {path}".format(path=self.local_path))
-        exec_shell("mysqldump -u {user} -p{password} -p {port} -h {ip} --database {database} --skip-lock-table"
-                   "|gzip > {local_path}".format(user=self.mysql_user, password=self.mysql_pass, ip=self.mysql_ip,
-                                                 port=self.mysql_port, database=self.mysql_database,
-                                                 local_path=local_backup_path))
         print("mysqldump -u {user} -p{password} -p {port} -h {ip} --database {database} --skip-lock-table"
                    "|gzip > {local_path}".format(user=self.mysql_user, password=self.mysql_pass, ip=self.mysql_ip,
                                                  port=self.mysql_port, database=self.mysql_database,
                                                  local_path=local_backup_path))
+        exec_shell("mysqldump -u {user} -p{password} -p {port} -h {ip} --database {database} --skip-lock-table"
+                   "|gzip > {local_path}".format(user=self.mysql_user, password=self.mysql_pass, ip=self.mysql_ip,
+                                                 port=self.mysql_port, database=self.mysql_database,
+                                                 local_path=local_backup_path))
+
         backup_path = local_backup_file_path[1:]
         return local_backup_file_path, backup_path
         # 增量备份
