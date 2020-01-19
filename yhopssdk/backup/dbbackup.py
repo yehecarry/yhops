@@ -47,7 +47,7 @@ class DbBackup(object):
         """
         # 单库全量备份备份
         # 全库全量备份备份
-        local_backup_path = self.local_path + self.mysql_database
+        local_backup_path = self.local_path + "/" + self.mysql_database
         # 备份文件路径
         local_backup_file_path = self.local_path + "/" + self.mysql_database + ".gz"
         if not os.path.exists(self.local_path):
@@ -90,7 +90,7 @@ class DbBackup(object):
         :return:
         """
         # 本地备份目录
-        local_backup_path = self.local_path + self.mongodb_database
+        local_backup_path = self.local_path + "/" + self.mongodb_database
         # 备份文件路径
         local_backup_file_path = self.local_path + "/" + self.mongodb_database + ".gz"
         # 创建备份目录
