@@ -53,6 +53,32 @@ class DbBackup(object):
         return local_path, backup_path
         # 增量备份
 
+    def mysql_all_backup(self, mysql_data):
+        """
+        mysql 备份方法
+        :param user: mysql用户名
+        :param password: mysql密码
+        :param ip: mysql ip地址
+        :param port: mysql 端口号
+        :param database:  需要备份的数据库名字
+        :return:
+        """
+        user = mysql_data.get("user")
+        password = mysql_data.get("password")
+        ip = mysql_data.get("ip")
+        port = mysql_data.get("port")
+        database = mysql_data.get("database")
+        # 单库全量备份备份
+        if not os.path.exists(self.local_path):
+            exec_shell("mkdir -p {path}".format(path=self.local_path))
+        local_path = self.local_path + "/" + database + ".sql.gz"
+        exec_shell("mysqldump -u {user} -p{password} -p {port} -h {ip} --database {database}"
+                   " --skip-lock-table |gzip > {local_path}".format(user=user, password=password, ip=ip, port=port,
+                                                                    database=database, local_path=local_path))
+        backup_path = local_path[1:]
+        return local_path, backup_path
+        # 增量备份
+
     def mongodb_backup(self, mongodb_data):
         """
         mongodb 单库备份方法
@@ -190,6 +216,9 @@ class DbBackup(object):
                 return local_backup_file_path, backup_path
 
     def redis_backup(self):
+        print("redisrest")
+
+    def redis_all_backup(self):
         print("redisrest")
 
 
