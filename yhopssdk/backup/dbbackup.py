@@ -166,7 +166,7 @@ class DbBackup(object):
             # 生成集群ip 格式
             cluster_ip = []
             for i in range(len(self.mongodb_ip)):
-                cluster_ip.append(self.mongodb_ip[i] + ":" + self.mongodb_ip[i])
+                cluster_ip.append(self.mongodb_ip[i] + ":" + self.mongodb_port[i])
             cluster_ip = ",".join(cluster_ip)
             # 没有用户名与密码
             if not self.mongodb_user:
