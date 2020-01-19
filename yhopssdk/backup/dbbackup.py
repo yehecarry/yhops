@@ -43,7 +43,6 @@ class DbBackup(object):
     def mysql_backup(self):
         """
         mysql 备份方法
-        :param database:  需要备份的数据库名字
         :return:
         """
         # 单库全量备份备份
@@ -61,11 +60,6 @@ class DbBackup(object):
     def mysql_all_backup(self):
         """
         mysql 备份方法
-        :param user: mysql用户名
-        :param password: mysql密码
-        :param ip: mysql ip地址
-        :param port: mysql 端口号
-        :param database:  需要备份的数据库名字
         :return:
         """
         # 全库全量备份备份
