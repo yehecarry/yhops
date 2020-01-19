@@ -19,8 +19,8 @@ class PushS3(object):
         self.aws_secret_access_key = data.AWS_SECRET_ACCESS_KEY  # Aws Access_key 密钥
         self.region_name = data.REGION_NAME  # Bucket区域
         self.bucket_name = data.BUCKET_NAME  # Bucket名字
-        self.local_path = data.get('Local_path')  # 本地备份文件的路径
-        self.backup_path = data.get('Backup_path')  # 备份到AWS上的路径
+        self.local_path = data.LOCAL_PATH  # 本地备份文件的路径
+        self.backup_path = data.BACKUP_PATH  # 备份到AWS上的路径
         session = boto3.session.Session(region_name=self.region_name, aws_access_key_id=self.aws_access_key_id,
                         aws_secret_access_key=self.aws_secret_access_key)
         self.s3_init = session.resource('s3', self.region_name)
