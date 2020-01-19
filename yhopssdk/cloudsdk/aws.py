@@ -31,3 +31,9 @@ class PushS3(object):
             self.s3.upload_file(self.local_path, self.backup_path)
         except Exception as ex:
             exit(ex)
+
+    def download_file(self):
+        try:
+            self.s3.download_file(self.local_path, self.backup_path)
+        except Exception as ex:
+            exit(ex)
