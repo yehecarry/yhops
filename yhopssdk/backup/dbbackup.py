@@ -10,7 +10,7 @@ import sys
 import os
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE)
-from ..pubilc.useshell import exec_shell
+from yhopssdk.pubilc.operate import exec_shell
 
 
 class DbBackup(object):

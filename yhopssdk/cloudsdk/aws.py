@@ -15,10 +15,10 @@ class PushS3(object):
         文件备份到S3上
         :param data: 传入的字典信息
         """
-        self.aws_access_key_id = data.get('SecretID')  # Aws Access_key ID
-        self.aws_secret_access_key = data.get('SecretKey')  # Aws Access_key 密钥
-        self.region_name = data.get('Region')  # Bucket区域
-        self.bucket_name = data.get('Bucket_name')  # Bucket名字
+        self.aws_access_key_id = data.AWS_ACCESS_KEY_ID  # Aws Access_key ID
+        self.aws_secret_access_key = data.AWS_SECRET_ACCESS_KEY  # Aws Access_key 密钥
+        self.region_name = data.REGION_NAME  # Bucket区域
+        self.bucket_name = data.BUCKET_NAME  # Bucket名字
         self.local_path = data.get('Local_path')  # 本地备份文件的路径
         self.backup_path = data.get('Backup_path')  # 备份到AWS上的路径
         session = boto3.session.Session(region_name=self.region_name, aws_access_key_id=self.aws_access_key_id,
